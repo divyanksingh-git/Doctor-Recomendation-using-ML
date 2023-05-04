@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doctor Locator</title>
+	<style>
+		#mapbody {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		#maph1 {
+			color: #008080;
+			text-align: center;
+		}
+		
+		#map {
+			height: 400px;
+			margin: 20px auto;
+			max-width: 800px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+	</style>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeOzICGIuqRjO9UGW4x5T7i0Mh5iNHyZ0"></script>
+	<script>
+		function initMap() {
+			// Define the location of the doctor's clinic
+			var clinicLocation = {lat: 20.5937, lng: 78.9629 };
+			
+			// Create a map centered on the clinic's location
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 14,
+				center: clinicLocation
+			});
+			
+			// Add a marker at the clinic's location
+			var marker = new google.maps.Marker({
+				position: clinicLocation,
+				map: map,
+				title: 'Doctor\'s Clinic'
+			});
+		}
+	</script>
+</head>
+<body id="mapbody" onload="initMap()">
+	<h1 id="maph1">Doctor Locator</h1>
+	<div id="map"></div>
+</body>
+</html>

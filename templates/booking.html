@@ -5,16 +5,58 @@
         <meta name = "viewport" content ="width = device-width, initial scale =1.0">
         <link href ="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel=" stylesheet">
 
-        <title>Doctor Recommendation</title>
-
-        <style>
-          #svg{
-            color: grey;
-          }
-          #svg:onclick{
-            color: red;
-          }
-        </style>
+        <title>Book an Appointment</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		h1 {
+			color: #008080;
+			text-align: center;
+		}
+		
+		form {
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			margin: 0 auto;
+			max-width: 500px;
+			padding: 20px;
+		}
+		
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		
+		input[type=text], input[type=email], input[type=date], input[type=time], select {
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			margin-bottom: 20px;
+			padding: 10px;
+			width: 100%;
+		}
+		
+		input[type=submit] {
+			background-color: #008080;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			cursor: pointer;
+			font-size: 16px;
+			padding: 10px 20px;
+		}
+		
+		input[type=submit]:hover {
+			background-color: #006666;
+		}
+	</style>
 {% endblock %}
 
 {% block body %}
@@ -41,37 +83,43 @@
             </div>
           </header>
           <hr>
-          <section class="text-gray-600 body-font overflow-hidden">
-            <div class="container px-5 py-24 mx-auto">
-              <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-                <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Doctor Recommendation system</h1>
-                  <h2 class="text-sm title-font text-gray-500 tracking-widest">Recommended Doctor is listed below based on your symptoms:</h2>
-                  
-                  <div class="flex mb-4">
-                    <a id="do" class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1" onclick=doc()>Doctor Description </a>
-                    <a id="re" class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1" onclick=re()>Reviews</a>
-                    <a id="de" class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1" onclick=det()>Details</a>
-                  </div>
-                  <div id ="docblock">
-                  
-                  </div>
-                  <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">₹ 500.00</span>
-                    <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><a href="{{ url_for('book') }}">Book here</a></button>
-                    <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><a href="{{ url_for('map') }}">Location</a></button>
-                    <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                      <svg id="svg" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div id="docimage" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded">
-                </div>
-              </div>
-            </div>
-          </section>
+          <h1>Book an Appointment</h1>
+	<form method="post" action="process-booking.php">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		
+		<label for="phone">Phone:</label>
+		<input type="text" id="phone" name="phone" required>
+		
+		<label for="date">Date:</label>
+		<input type="date" id="date" name="date" required>
+		
+		<label for="time">Time:</label>
+		<input type="time" id="time" name="time" required>
+		
+		<label for="specialty">Specialty:</label>
+		<select id="specialty" name="specialty" required>
+			<option value="">Select a Specialty</option>
+			<option value="Dentist">Dentist</option>
+			<option value="Cardiologist">Cardiologist</option>
+			<option value="Gynecologist">Gynecologist</option>
+			<option value="Dermatologist">Dermatologist</option>
+		</select>
+		
+		<label for="doctor">Doctor:</label>
+		<select id="doctor" name="doctor" required>
+			<option value="">Select a Doctor</option>
+			<option value="Dr. John Doe">Dr. John Doe</option>
+			<option value="Dr. Jane Smith">Dr. Jane Smith</option>
+			<option value="Dr. David Lee">Dr. David Lee</option>
+			<option value="Dr. Maria Rodriguez">Dr. Maria Rodriguez</option>
+		</select>
+		
+		<input type="submit" value="Book Appointment">
+	</form>
           <hr>
           <footer class="text-gray-600 body-font">
             <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">

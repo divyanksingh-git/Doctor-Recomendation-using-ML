@@ -7,11 +7,10 @@ function sub(){
             checked.push(temp.name)
         }
     }
-    console.log(checked)
 
-    const xhr = new XMLHttpRequest()
+    const x = new XMLHttpRequest()
     data = checked
-    xhr.open('post','/recommend')
-    xhr.send(data)
+    x.open('post','/recommend')
+    x.send(data)
 }
 
