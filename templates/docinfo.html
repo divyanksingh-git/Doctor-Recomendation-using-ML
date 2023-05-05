@@ -14,6 +14,18 @@
           #svg:onclick{
             color: red;
           }
+          table {
+        border-collapse: collapse;
+        
+      }
+      th, td {
+        padding: 3px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
         </style>
 {% endblock %}
 
@@ -56,7 +68,7 @@
                   <div id ="docblock">
                   
                   </div>
-                  <div class="flex">
+                  <div id="book"class="flex">
                     <span class="title-font font-medium text-2xl text-gray-900">₹ 500.00</span>
                     <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><a href="{{ url_for('book') }}">Book here</a></button>
                     <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><a href="{{ url_for('map') }}">Location</a></button>
@@ -68,6 +80,7 @@
                   </div>
                 </div>
                 <div id="docimage" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded">
+                  <img alt="doctor" width="600" height="600" src="{{ url_for('static',filename='assets/doc.webp') }}">
                 </div>
               </div>
             </div>
@@ -76,7 +89,7 @@
           <footer class="text-gray-600 body-font">
             <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
               <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                <svg  xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg>
                 <span class="ml-3 text-xl">DRS</span>

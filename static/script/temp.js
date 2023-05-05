@@ -1,1 +1,1 @@
-var doc_info = "Bronchial Asthma?9?Dr. Md. Shafiqul Islam?1711061814?AUSTOMONISHA,CHATMOHAR,PABNA."
+var doc_info = "Psoriasis?39?Dr. Mohammad Ali Chowdhury?1715405870?177/2.UposhaharHousing Estart.Cantorment-6202.Boalia.Rajshahi"
